@@ -1,0 +1,32 @@
+{
+  "name": "tailwindcss-dark-mode",
+  "description": "A Tailwind CSS plugin that adds a variant for dark mode",
+  "version": "1.0.2",
+  "author": "Chance Arthur",
+  "license": "MIT",
+  "copyright": "Chance Arthur",
+  "main": "index.js",
+  "homepage": "https://github.com/ChanceArthur/tailwindcss-dark-mode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChanceArthur/tailwindcss-dark-mode.git"
+  },
+  "bugs": "https://github.com/ChanceArthur/tailwindcss-dark-mode/issues",
+  "keywords": [
+    "tailwind",
+    "tailwindcss",
+    "tailwindcss-plugin",
+    "dark-theme",
+    "dark-mode",
+    "postcss",
+    "css",
+    "javascript"
+  ],
+  "dependencies": {
+    "tailwindcss": "^1.0.0-beta.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0"
+  }
+}
