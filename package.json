@@ -23,11 +23,11 @@
     "javascript"
   ],
   "dependencies": {
-    "tailwindcss": "^1.0.5"
+    "tailwindcss": "^1.1.2"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-google": "^0.12.0",
+    "eslint": "^6.2.2",
+    "eslint-config-google": "^0.13.0",
     "postcss-selector-parser": "^6.0.0"
   }
 }
