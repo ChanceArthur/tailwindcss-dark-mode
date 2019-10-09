@@ -1,39 +1,46 @@
+const selectorParser = require('postcss-selector-parser');
+
 module.exports = function() {
   return function({addVariant, e}) {
     addVariant('dark', ({modifySelectors, separator}) => {
-      modifySelectors(({className}) => {
-        return `.mode-dark .${e(`dark${separator}${className}`)}`;
+      modifySelectors(({selector}) => {
+        return selectorParser((selectors) => {
+          selectors.walkClasses((sel) => {
+            sel.value = `${e(`dark${separator}${sel.value}`)}`;
+            sel.parent.insertBefore(sel, selectorParser().astSync('.mode-dark '));
+          });
+        }).processSync(selector);
       });
     });
 
-    addVariant('dark-hover', ({modifySelectors, separator}) => {
-      modifySelectors(({className}) => {
-        return `.mode-dark .${e(`dark-hover${separator}${className}`)}:hover`;
-      });
-    });
-
-    addVariant('dark-focus', ({modifySelectors, separator}) => {
-      modifySelectors(({className}) => {
-        return `.mode-dark .${e(`dark-focus${separator}${className}`)}:focus`;
-      });
-    });
-
-    addVariant('dark-active', ({modifySelectors, separator}) => {
-      modifySelectors(({className}) => {
-        return `.mode-dark .${e(`dark-active${separator}${className}`)}:active`;
-      });
-    });
+    addDarkPseudoClassVariant('hover');
+    addDarkPseudoClassVariant('focus');
+    addDarkPseudoClassVariant('active');
+    addDarkPseudoClassVariant('focus-within');
 
     addVariant('dark-group-hover', ({modifySelectors, separator}) => {
-      modifySelectors(({className}) => {
-        return `.mode-dark .group:hover .${e(`dark-group-hover${separator}${className}`)}`;
+      modifySelectors(({selector}) => {
+        return selectorParser((selectors) => {
+          selectors.walkClasses((sel) => {
+            sel.value = `${e(`dark-group-hover${separator}${sel.value}`)}`;
+            sel.parent.insertBefore(sel, selectorParser().astSync('.mode-dark .group:hover '));
+          });
+        }).processSync(selector);
       });
     });
 
-    addVariant('dark-focus-within', ({modifySelectors, separator}) => {
-      modifySelectors(({className}) => {
-        return `.mode-dark .${e(`dark-focus-within${separator}${className}`)}:focus-within`;
+    function addDarkPseudoClassVariant(pseudoClass) {
+      addVariant(`dark-${pseudoClass}`, ({modifySelectors, separator}) => {
+        modifySelectors(({selector}) => {
+          return selectorParser((selectors) => {
+            selectors.walkClasses((sel) => {
+              sel.value = `${e(`dark-${pseudoClass}${separator}${sel.value}`)}`;
+              sel.parent.insertBefore(sel, selectorParser().astSync('.mode-dark '));
+              sel.parent.insertAfter(sel, selectorParser.pseudo({value: `:${pseudoClass}`}));
+            });
+          }).processSync(selector);
+        });
       });
-    });
+    }
   };
 };
