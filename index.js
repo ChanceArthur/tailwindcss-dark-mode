@@ -1,13 +1,13 @@
 const selectorParser = require('postcss-selector-parser');
 
-module.exports = function() {
+module.exports = function({ darkModeClassName = 'mode-dark' }) {
   return function({addVariant, e}) {
     addVariant('dark', ({modifySelectors, separator}) => {
       modifySelectors(({selector}) => {
         return selectorParser((selectors) => {
           selectors.walkClasses((sel) => {
             sel.value = `${e(`dark${separator}${sel.value}`)}`;
-            sel.parent.insertBefore(sel, selectorParser().astSync('.mode-dark '));
+            sel.parent.insertBefore(sel, selectorParser().astSync(`.${darkModeClassName} `));
           });
         }).processSync(selector);
       });
@@ -23,7 +23,7 @@ module.exports = function() {
         return selectorParser((selectors) => {
           selectors.walkClasses((sel) => {
             sel.value = `${e(`dark-group-hover${separator}${sel.value}`)}`;
-            sel.parent.insertBefore(sel, selectorParser().astSync('.mode-dark .group:hover '));
+            sel.parent.insertBefore(sel, selectorParser().astSync(`.${darkModeClassName} .group:hover `));
           });
         }).processSync(selector);
       });
@@ -35,7 +35,7 @@ module.exports = function() {
           return selectorParser((selectors) => {
             selectors.walkClasses((sel) => {
               sel.value = `${e(`dark-${pseudoClass}${separator}${sel.value}`)}`;
-              sel.parent.insertBefore(sel, selectorParser().astSync('.mode-dark '));
+              sel.parent.insertBefore(sel, selectorParser().astSync(`.${darkModeClassName} `));
               sel.parent.insertAfter(sel, selectorParser.pseudo({value: `:${pseudoClass}`}));
             });
           }).processSync(selector);
