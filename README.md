@@ -9,7 +9,9 @@ yarn add tailwindcss-dark-mode --dev
 Add the plugin to the `plugins` array in your Tailwind configuration.
 
 ```javascript
-plugins: [require("tailwindcss-dark-mode")()];
+plugins: [
+  require('tailwindcss-dark-mode')()
+]
 ```
 
 ## Usage
@@ -34,10 +36,7 @@ Variants for dark mode are based on [Tailwind's own variants](https://tailwindcs
   <p class="text-black dark:text-white">
     My eyes are grateful.
 
-    <a
-      ...
-      class="text-blue-300 hover:text-blue-400 dark:text-blue-700 dark-hover:text-blue-600"
-    >
+    <a ... class="text-blue-300 hover:text-blue-400 dark:text-blue-700 dark-hover:text-blue-600">
       Learn more
     </a>
   </p>
@@ -58,31 +57,35 @@ variants: {
 
 ## Customize your CSS selector
 
-By default `.mode-dark` is used to apply dark variant. If you want to customize this selector you can change it with `theme` property in the `tailwind.config.js` of your project.
+By default `.mode-dark` selector is used to apply dark variant. If you want to customize this selector you can change it with `theme` property in the `tailwind.config.js` of your project.
 
 ```javascript
 module.exports = {
   // ...
   theme: {
     // ...
-    darkSelector: "[data-theme='dark']"
+    darkSelector: '[data-theme="dark"]'
     // ...
   },
   // ...
 ```
+
 
 ## PurgeCSS
 
 If you are using PurgeCSS, you should either add `mode-dark` to the `whitelist` array...
 
 ```javascript
-whitelist: ["mode-dark"];
+whitelist: ['mode-dark']
 ```
 
 ... or add `dark-mode.js` to the `content` array.
 
 ```javascript
-content: ["**/*.js", "./node_modules/tailwindcss-dark-mode/dark-mode.js"];
+content: [
+  '**/*.js',
+  './node_modules/tailwindcss-dark-mode/dark-mode.js'
+]
 ```
 
 Otherwise, PurgeCSS will assume that any classes related to dark mode should be removed, as the `mode-dark` class is only applied when the page is loaded.
