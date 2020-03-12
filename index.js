@@ -36,5 +36,11 @@ module.exports = function() {
         return `${darkSelector} .${e(`dark-focus-within${separator}${className}`)}:focus-within`;
       });
     });
+
+    addVariant('dark-odd', ({modifySelectors, separator}) => {
+      modifySelectors(({className}) => {
+        return `${darkSelector} .${e(`dark-odd${separator}${className}`)}:nth-child(odd)`;
+      });
+    });
   };
 };
