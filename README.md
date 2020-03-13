@@ -28,6 +28,7 @@ Variants for dark mode are based on [Tailwind's own variants](https://tailwindcs
 - `dark-active`
 - `dark-group-hover`
 - `dark-focus-within`
+- `dark-even`
 - `dark-odd`
 
 ... and are used in the same way.
@@ -50,7 +51,7 @@ As with existing variants such as `hover` and `focus`, variants for dark mode mu
 
 ```javascript
 variants: {
-  backgroundColor: ['dark', 'dark-hover', 'dark-group-hover', 'dark-odd'],
+  backgroundColor: ['dark', 'dark-hover', 'dark-group-hover', 'dark-even', 'dark-odd'],
   borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
   textColor: ['dark', 'dark-hover', 'dark-active']
 }

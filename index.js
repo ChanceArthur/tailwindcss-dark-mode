@@ -37,6 +37,12 @@ module.exports = function() {
       });
     });
 
+    addVariant('dark-even', ({modifySelectors, separator}) => {
+      modifySelectors(({className}) => {
+        return `${darkSelector} .${e(`dark-even${separator}${className}`)}:nth-child(even)`;
+      });
+    });
+
     addVariant('dark-odd', ({modifySelectors, separator}) => {
       modifySelectors(({className}) => {
         return `${darkSelector} .${e(`dark-odd${separator}${className}`)}:nth-child(odd)`;
