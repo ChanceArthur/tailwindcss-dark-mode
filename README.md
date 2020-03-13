@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-yarn add tailwindcss-dark-mode --dev
+npm install tailwindcss-dark-mode --save-dev
 ```
 
 Add the plugin to the `plugins` array in your Tailwind configuration.
