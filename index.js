@@ -48,5 +48,11 @@ module.exports = function() {
         return `${darkSelector} .${e(`dark-odd${separator}${className}`)}:nth-child(odd)`;
       });
     });
+
+    addVariant('dark-placeholder', ({modifySelectors, separator}) => {
+      modifySelectors(({className}) => {
+        return `${darkSelector} .${e(`dark-placeholder${separator}${className}`)}::placeholder`;
+      });
+    });
   };
 };
