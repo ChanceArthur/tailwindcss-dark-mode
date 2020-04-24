@@ -51,7 +51,7 @@ module.exports = function() {
 
     addVariant('dark-placeholder', ({modifySelectors, separator}) => {
       modifySelectors(({className}) => {
-        return `${darkSelector} .${e(`dark-placeholder${separator}${className}`)}::placeholder`;
+        return `${darkSelector} .${e(`dark{separator}${className}`)}::placeholder`;
       });
     });
   };
