@@ -54,5 +54,11 @@ module.exports = function() {
         return `${darkSelector} .${e(`dark${separator}${className}`)}::placeholder`;
       });
     });
+    
+    addVariant('dark-divide', ({modifySelectors, separator}) => {
+      modifySelectors(({className}) => {
+        return `${darkSelector} .${e(`dark${separator}${className}`)} > :not(template) ~ :not(template)`;
+      });
+    });
   };
 };
