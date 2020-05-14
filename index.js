@@ -25,6 +25,12 @@ module.exports = function() {
       });
     });
 
+    addVariant('dark-disabled', ({modifySelectors, separator}) => {
+      modifySelectors(({className}) => {
+        return `${darkSelector} .${e(`dark-disabled${separator}${className}`)}:disabled`;
+      });
+    });
+
     addVariant('dark-group-hover', ({modifySelectors, separator}) => {
       modifySelectors(({className}) => {
         return `${darkSelector} .group:hover .${e(`dark-group-hover${separator}${className}`)}`;
