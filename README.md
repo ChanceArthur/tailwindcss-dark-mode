@@ -26,6 +26,7 @@ Variants for dark mode are based on [Tailwind's own variants](https://tailwindcs
 - `dark-hover`
 - `dark-focus`
 - `dark-active`
+- `dark-disabled`
 - `dark-group-hover`
 - `dark-focus-within`
 - `dark-even`
