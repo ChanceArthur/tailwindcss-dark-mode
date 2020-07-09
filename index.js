@@ -57,7 +57,13 @@ module.exports = function() {
 
     addVariant('dark-placeholder', ({modifySelectors, separator}) => {
       modifySelectors(({className}) => {
-        return `${darkSelector} .${e(`dark-placeholder${separator}${className}`)}::placeholder`;
+        return `${darkSelector} .${e(`dark${separator}${className}`)}::placeholder`;
+      });
+    });
+    
+    addVariant('dark-divide', ({modifySelectors, separator}) => {
+      modifySelectors(({className}) => {
+        return `${darkSelector} .${e(`dark${separator}${className}`)} > :not(template) ~ :not(template)`;
       });
     });
   };
