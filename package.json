@@ -1,7 +1,7 @@
 {
   "name": "tailwindcss-dark-mode",
   "description": "A Tailwind CSS plugin that adds variants for dark mode",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "Chance Arthur",
   "license": "MIT",
   "copyright": "Chance Arthur",
@@ -23,7 +23,7 @@
     "javascript"
   ],
   "dependencies": {
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.5.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
