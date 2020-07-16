@@ -3,9 +3,9 @@ function checkDarkMode() {
 }
 
 function watchDarkMode() {
-  if (!window.matchMedia) return
+  if (!window.matchMedia) return;
 
-  window.matchMedia('(prefers-color-scheme: dark)').addListener(addDarkModeSelector)
+  window.matchMedia('(prefers-color-scheme: dark)').addListener(addDarkModeSelector);
 }
 
 function addDarkModeSelector() {
@@ -16,5 +16,5 @@ function addDarkModeSelector() {
   }
 }
 
-addDarkModeSelector()
-watchDarkMode()
+addDarkModeSelector();
+watchDarkMode();
