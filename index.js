@@ -1,9 +1,17 @@
+const selectorParser = require('postcss-selector-parser');
+
 module.exports = function() {
   return function({addVariant, theme, e}) {
     const darkSelector = theme('darkSelector', '.mode-dark');
-    addVariant('dark', ({modifySelectors, separator}) => {
-      modifySelectors(({className}) => {
-        return `${darkSelector} .${e(`dark${separator}${className}`)}, ${darkSelector}.${e(`dark${separator}${className}`)}`;
+
+    addVariant('dark', ({ modifySelectors, separator }) => {
+      modifySelectors(({ selector }) => {
+        return selectorParser((selectors) => {
+          selectors.walkClasses((sel) => {
+            sel.value = `dark${separator}${sel.value}`;
+            sel.parent.insertBefore(sel, selectorParser().astSync(prefix(`${darkSelector} `)));
+          });
+        }).processSync(selector);
       });
     });
 
