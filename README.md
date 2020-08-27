@@ -59,6 +59,8 @@ variants: {
 }
 ```
 
+**Please note:** This is only a simple demonstration for how dark variants are enabled and how they could be used. The variants provided by this plugin are **not** replacements for Tailwind's own variants, they are to be used _in addition_ to them. For example, anywhere you would enable `dark-hover`, you should also enable `hover`.
+
 ### Changing the Selector
 
 By default, `.mode-dark` is used as the selector for dark mode. You can change this by adding the `darkSelector` key to the `theme` section in your Tailwind configuration.
