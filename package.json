@@ -23,7 +23,8 @@
     "javascript"
   ],
   "dependencies": {
-    "tailwindcss": "^1.6.2"
+    "tailwindcss": "^1.6.2",
+    "postcss-selector-parser": "^6.0.2"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
