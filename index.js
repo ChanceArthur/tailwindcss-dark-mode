@@ -1,11 +1,11 @@
 const selectorParser = require('postcss-selector-parser');
 
 module.exports = function() {
-  return function({addVariant, theme, e}) {
+  return function({addVariant, theme, e, prefix}) {
     const darkSelector = theme('darkSelector', '.mode-dark');
 
-    addVariant('dark', ({ modifySelectors, separator }) => {
-      modifySelectors(({ selector }) => {
+    addVariant('dark', ({modifySelectors, separator}) => {
+      modifySelectors(({selector}) => {
         return selectorParser((selectors) => {
           selectors.walkClasses((sel) => {
             sel.value = `dark${separator}${sel.value}`;
