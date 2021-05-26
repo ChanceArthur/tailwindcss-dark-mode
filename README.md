@@ -1,5 +1,7 @@
 # Tailwind CSS Dark Mode
 
+⚠️ [Dark mode is built in to Tailwind CSS as of v2.0](https://blog.tailwindcss.com/tailwindcss-v2). This plugin will receive no further updates.
+
 ## Installation
 
 ```
